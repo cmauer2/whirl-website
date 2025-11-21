@@ -11,84 +11,176 @@ const supabase = createClient(
 export default function ResetPassword() {
   const [status, setStatus] = useState("Checking your reset link...");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [sessionValid, setSessionValid] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    async function check() {
+    const checkSession = async () => {
+      setStatus("Checking your reset link...");
+
       const { data, error } = await supabase.auth.getSession();
 
-      if (error || !data.session) {
-        setStatus("This reset link is invalid or expired.");
+      if (error) {
+        console.error(error);
+        setStatus("Something went wrong reading the reset link.");
+        setSessionValid(false);
+        return;
+      }
+
+      if (!data.session || !data.session.user) {
+        setStatus(
+          "This reset link is invalid or has expired. Please request a new one from the Whirl app."
+        );
+        setSessionValid(false);
         return;
       }
 
       setSessionValid(true);
-      setStatus("Enter your new password below.");
-    }
+      setStatus("Enter a new password for your Whirl account.");
+    };
 
-    check();
+    checkSession();
   }, []);
 
-  async function updatePassword(e: any) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("Updating password...");
 
-    const { error } = await supabase.auth.updateUser({ password });
-
-    if (error) {
-      setStatus("Error updating password. Try again.");
+    if (!password) {
+      setStatus("Please enter a new password.");
       return;
     }
 
-    setStatus("Password updated! You may return to the Whirl app.");
+    if (password !== confirmPassword) {
+      setStatus("Passwords do not match.");
+      return;
+    }
+
+    setSubmitting(true);
+    setStatus("Saving your new password...");
+
+    const { error } = await supabase.auth.updateUser({ password });
+
+    setSubmitting(false);
+
+    if (error) {
+      console.error(error);
+      setStatus(
+        "We couldn't update your password. The reset link may have expired. Please request a new one from the Whirl app."
+      );
+      return;
+    }
+
+    setStatus(
+      "Your password has been updated! You can close this window and return to the Whirl app to log in."
+    );
     setSessionValid(false);
-  }
+  };
 
   return (
     <main
       style={{
         minHeight: "100vh",
-        backgroundColor: "#2b0a6b",
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
-        padding: "2rem",
+        justifyContent: "center",
+        background: "#0f172a",
+        fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
       }}
     >
-      <div style={{ background: "#fff", padding: 32, borderRadius: 12, maxWidth: 400 }}>
-        <h1 style={{ marginTop: 0 }}>Update your Whirl password</h1>
-        <p>{status}</p>
+      <div
+        style={{
+          width: "100%",
+          maxWidth: 420,
+          background: "white",
+          padding: 24,
+          borderRadius: 16,
+          boxShadow: "0 20px 40px rgba(15, 23, 42, 0.35)",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: 24,
+            fontWeight: 700,
+            marginBottom: 8,
+            color: "#111827",
+          }}
+        >
+          Reset your Whirl password
+        </h1>
+        <p style={{ fontSize: 14, color: "#4b5563", marginBottom: 16 }}>
+          {status}
+        </p>
 
         {sessionValid && (
-          <form onSubmit={updatePassword}>
-            <input
-              type="password"
-              placeholder="New password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              minLength={8}
+          <form onSubmit={handleSubmit}>
+            <label
               style={{
-                width: "100%",
-                padding: 10,
-                marginBottom: 12,
-                borderRadius: 8,
-                border: "1px solid #ccc",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                width: "100%",
-                padding: 10,
-                borderRadius: 999,
-                border: "none",
-                background: "#5b46ff",
-                color: "#fff",
-                fontWeight: 600,
-                cursor: "pointer",
+                display: "block",
+                fontSize: 14,
+                fontWeight: 500,
+                color: "#111827",
+                marginBottom: 4,
               }}
             >
-              Save new password
+              New password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "10px 12px",
+                borderRadius: 8,
+                border: "1px solid #d1d5db",
+                marginBottom: 12,
+                fontSize: 14,
+              }}
+            />
+
+            <label
+              style={{
+                display: "block",
+                fontSize: 14,
+                fontWeight: 500,
+                color: "#111827",
+                marginBottom: 4,
+              }}
+            >
+              Confirm new password
+            </label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "10px 12px",
+                borderRadius: 8,
+                border: "1px solid #d1d5db",
+                marginBottom: 16,
+                fontSize: 14,
+              }}
+            />
+
+            <button
+              type="submit"
+              disabled={submitting}
+              style={{
+                width: "100%",
+                padding: "10px 12px",
+                borderRadius: 999,
+                border: "none",
+                background: submitting ? "#4f46e5" : "#5b46ff",
+                color: "#fff",
+                fontWeight: 600,
+                fontSize: 15,
+                cursor: submitting ? "default" : "pointer",
+                opacity: submitting ? 0.8 : 1,
+              }}
+            >
+              {submitting ? "Saving..." : "Save new password"}
             </button>
           </form>
         )}
