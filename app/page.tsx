@@ -127,7 +127,7 @@ export default function LandingPage() {
                 border: '1px solid #e5e7eb',
               }}
             >
-              Learn more
+              <a href="https://github.com/ghebert3/4330-Group-Project">GitHub</a>
             </a>
           </div>
         </div>
