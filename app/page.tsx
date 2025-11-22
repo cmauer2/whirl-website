@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-800 via-purple-900 to-black text-white">
+    <main className="min-h-screen bg-[#461D7C] text-white">
       {/* NAVBAR */}
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         {/* Left: Logo */}
@@ -25,7 +25,7 @@ export default function HomePage() {
           </Link>
 
           <Link
-            href="https://github.com/your-org/your-repo"
+            href="https://github.com/ghebert3/4330-Group-Project"
             target="_blank"
             className="hover:opacity-80 transition"
           >
@@ -172,17 +172,17 @@ export default function HomePage() {
           <h3 className="text-lg font-semibold mb-3">FAQ</h3>
 
           <p className="text-white/70 mb-4">
-            <strong className="text-white">Who can use Whirl?</strong>  
+            <strong className="text-white">Who can use Whirl? </strong>  
             LSU students only.
           </p>
 
           <p className="text-white/70 mb-4">
-            <strong className="text-white">Is this official LSU software?</strong>  
+            <strong className="text-white">Is this official LSU software? </strong>  
             No — Whirl is student-made and not affiliated with LSU.
           </p>
 
           <p className="text-white/70 mb-4">
-            <strong className="text-white">Is there an app?</strong>  
+            <strong className="text-white">Is there an app? </strong>  
             Yes, Android/iOS beta builds coming soon.
           </p>
         </div>
