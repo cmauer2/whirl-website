@@ -6,215 +6,86 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#461D7C] text-white">
-      {/* NAVBAR */}
-      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-        {/* Left: Logo */}
+    <main className="min-h-screen bg-[#461D7C] text-white flex flex-col">
+      {/* TOP NAV */}
+      <header className="w-full max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+        {/* Logo + Name */}
         <div className="flex items-center gap-3">
           <Image
-            src="/logo.png"
-            alt="Whirl Logo"
-            width={42}
-            height={42}
+            src="/tornado-whirl-logo-transparent.png"
+            alt="Whirl logo"
+            width={40}
+            height={40}
             className="rounded-xl"
+            priority
           />
-          <span className="font-bold text-lg tracking-wide">Whirl</span>
+          <span className="text-lg font-semibold tracking-wide">Whirl</span>
         </div>
 
-        {/* Right: Links */}
-        <nav className="flex items-center gap-6 text-sm">
-          {/* Goes to https://joinwhirl.fun/download */}
+        {/* Nav Buttons */}
+        <nav className="flex items-center gap-3 text-sm">
           <Link href="/download">
-            <button className="px-4 py-2 bg-yellow-300 text-black font-semibold rounded-full shadow-md hover:opacity-90 transition">
+            <button className="px-4 py-2 rounded-full bg-white text-[#461D7C] font-semibold shadow-md hover:bg-purple-100 transition">
               Download
             </button>
           </Link>
 
-          {/* External GitHub repo */}
           <Link
             href="https://github.com/ghebert3/4330-Group-Project"
             target="_blank"
-            className="hover:opacity-80 transition"
           >
-            GitHub
+            <button className="px-4 py-2 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
+              GitHub
+            </button>
           </Link>
 
-          {/* Contact / FAQ page (you can create app/contact/page.tsx later) */}
-          <Link href="/contact" className="hover:opacity-80 transition">
-            Contact / FAQ
+          <Link href="/contact">
+            <button className="px-4 py-2 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
+              Contact / FAQ
+            </button>
           </Link>
         </nav>
       </header>
 
-      {/* HERO */}
-      <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
-        {/* LEFT SIDE */}
-        <div>
-          <div className="inline-flex items-center gap-2 bg-black/40 border border-white/20 rounded-full px-4 py-1 mb-4 text-xs">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            LSU-only campus social app
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-            Meet new Tigers —{" "}
-            <span className="text-yellow-300">instantly.</span>
+      {/* HERO SECTION */}
+      <section className="flex-1 flex items-center">
+        <div className="w-full max-w-5xl mx-auto px-6 py-10 flex flex-col items-center text-center gap-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            LSU’s campus social app.
           </h1>
 
-          <p className="text-white/70 text-sm md:text-base max-w-md leading-6 mb-6">
-            Whirl helps LSU students find study partners, gym buddies, gamers,
-            and friends based on interests, classes, and campus life.
+          <p className="text-sm md:text-base text-white/80 max-w-xl">
+            Meet new Tigers for study sessions, workouts, gaming, and hangouts —
+            all verified with your <span className="font-semibold">@lsu.edu</span> email.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-4">
+          {/* Primary CTAs */}
+          <div className="flex flex-wrap justify-center gap-4 mt-2">
             <Link href="/download">
-              <button className="px-6 py-3 bg-purple-700 hover:bg-purple-800 rounded-full shadow-lg text-white font-semibold transition">
-                Get the App (Soon)
+              <button className="px-6 py-3 rounded-full bg-white text-[#461D7C] font-semibold shadow-lg hover:bg-purple-100 transition">
+                Get Whirl
               </button>
             </Link>
 
             <Link
               href="https://github.com/ghebert3/4330-Group-Project"
               target="_blank"
-              className="px-6 py-3 border border-white/40 rounded-full hover:bg-white/10 transition"
             >
-              View on GitHub
+              <button className="px-6 py-3 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
+                View the code on GitHub
+              </button>
             </Link>
           </div>
 
-          <p className="text-xs text-white/60">
-            <strong className="text-white">Beta:</strong> LSU students only with
-            <strong className="text-white"> @lsu.edu</strong> emails.
+          <p className="text-xs text-white/60 mt-4">
+            Built by LSU students. Beta access for <span className="font-semibold text-white">@lsu.edu</span> emails.
           </p>
-        </div>
-
-        {/* RIGHT SIDE (Mockup Card) */}
-        <div className="bg-black/40 rounded-2xl border border-white/20 shadow-2xl p-6 max-w-sm mx-auto">
-          <div className="flex justify-between mb-4 text-xs text-white/60">
-            <span className="px-3 py-1 bg-black/40 border border-white/20 rounded-full">
-              Whirl · Campus Feed
-            </span>
-            <span>Now · LSU</span>
-          </div>
-
-          <div className="bg-black/40 border border-white/20 p-4 rounded-xl mb-4">
-            <div className="font-semibold mb-1">
-              Tonight · Middleton Library
-            </div>
-            <div className="text-xs text-white/60 mb-4">
-              “Study group for CSC 4330 exam · need 2 more people 👀”
-            </div>
-
-            <div className="flex justify-between">
-              <div className="bg-purple-500/20 border border-purple-300 rounded-full px-3 py-1 text-xs">
-                Matched via <strong>Interests</strong>
-              </div>
-              <div className="text-right text-xs">
-                <span className="text-white/60">Connections this week</span>
-                <div className="text-yellow-300 font-bold text-lg">128</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-between text-xs text-white/60">
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-gradient-to-r from-orange-400 to-purple-500" />
-              “Met more people here than all last year.”
-            </div>
-            <span>— LSU Student</span>
-          </div>
         </div>
       </section>
 
-      {/* FEATURES */}
-      <section className="max-w-6xl mx-auto px-6 py-10 grid gap-10">
-        <h2 className="text-lg font-semibold">Why Whirl?</h2>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              icon: "🎓",
-              title: "LSU-only community",
-              desc: "Sign up with your @lsu.edu email so every match is verified.",
-            },
-            {
-              icon: "🤝",
-              title: "Meetups that match you",
-              desc: "Find study groups, gym partners, gamers, or friends instantly.",
-            },
-            {
-              icon: "⚡",
-              title: "Simple & fast",
-              desc: "Set your interests and start meeting new Tigers in minutes.",
-            },
-            {
-              icon: "🛡",
-              title: "Privacy focused",
-              desc: "Your data stays secure with Supabase. You stay in control.",
-            },
-            {
-              icon: "📍",
-              title: "Campus-centered",
-              desc: "Built fully around LSU classes, life, and campus culture.",
-            },
-            {
-              icon: "🚀",
-              title: "Constantly updating",
-              desc: "New features roll out often. Your feedback shapes Whirl.",
-            },
-          ].map((f, i) => (
-            <div
-              key={i}
-              className="bg-black/40 border border-white/20 rounded-xl p-5 shadow-lg"
-            >
-              <div className="text-2xl mb-2">{f.icon}</div>
-              <div className="font-semibold mb-1">{f.title}</div>
-              <div className="text-white/60 text-sm leading-5">{f.desc}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ / CONTACT (still on home page for quick info) */}
-      <section
-        id="faq"
-        className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 border-t border-white/20"
-      >
-        <div>
-          <h3 className="text-lg font-semibold mb-3">FAQ</h3>
-
-          <p className="text-white/70 mb-4">
-            <strong className="text-white">Who can use Whirl? </strong>
-            LSU students only.
-          </p>
-
-          <p className="text-white/70 mb-4">
-            <strong className="text-white">
-              Is this official LSU software?
-            </strong>{" "}
-            No — Whirl is student-made and not affiliated with LSU.
-          </p>
-
-          <p className="text-white/70 mb-4">
-            <strong className="text-white">Is there an app?</strong> Yes,
-            Android/iOS beta builds are coming soon.
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Contact the Team</h3>
-          <p className="text-white/70 mb-3">
-            Have ideas or found issues? Reach out anytime.
-          </p>
-
-          <div className="inline-flex items-center gap-2 px-3 py-2 border border-white/40 rounded-full text-sm">
-            📧 contact@joinwhirl.fun
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="text-center py-6 text-white/50 text-xs">
-        © {new Date().getFullYear()} Whirl — Built by LSU students.
+      {/* FOOTER (tiny + subtle) */}
+      <footer className="w-full py-4 text-center text-[11px] text-white/50">
+        © {new Date().getFullYear()} Whirl · Not affiliated with LSU.
       </footer>
     </main>
   );
