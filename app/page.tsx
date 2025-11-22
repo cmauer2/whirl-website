@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -10,9 +11,13 @@ export default function HomePage() {
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-300 to-white text-purple-700 font-extrabold flex items-center justify-center shadow-xl">
-            W
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Whirl Logo"
+            width={42}
+            height={42}
+            className="rounded-xl"
+          />
           <span className="font-bold text-lg tracking-wide">Whirl</span>
         </div>
 
@@ -47,10 +52,6 @@ export default function HomePage() {
             LSU-only campus social app
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-            Meet new Tigers — <span className="text-yellow-300">instantly.</span>
-          </h1>
-
           <p className="text-white/70 text-sm md:text-base max-w-md leading-6 mb-6">
             Whirl helps LSU students find study partners, gym buddies, gamers,
             and friends based on interests, classes, and campus life.
@@ -64,7 +65,7 @@ export default function HomePage() {
             </Link>
 
             <Link
-              href="https://github.com/your-org/your-repo"
+              href="https://github.com/ghebert3/4330-Group-Project"
               target="_blank"
               className="px-6 py-3 border border-white/40 rounded-full hover:bg-white/10 transition"
             >
@@ -73,7 +74,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-white/60">
-            <strong className="text-white">Beta:</strong> LSU students only with
+            <strong className="text-white"></strong> LSU students only with
             <strong className="text-white"> @lsu.edu</strong> emails.
           </p>
         </div>
