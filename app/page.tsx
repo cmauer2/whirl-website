@@ -53,8 +53,8 @@ export default function HomePage() {
           <Image
             src="/tornado-whirl-logo-transparent.png"
             alt="Whirl Full Logo"
-            width={300}
-            height={300}
+            width={150}
+            height={150}
             className="mb-4"
             priority
           />
