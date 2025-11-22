@@ -9,23 +9,22 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#461D7C] text-white flex flex-col">
       {/* TOP NAV */}
       <header className="w-full max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-        {/* Logo + Name */}
-        <div className="flex items-center gap-3">
+        {/* Top-left Logo (box-only) */}
+        <Link href="/" className="cursor-pointer">
           <Image
-            src="/tornado-whirl-logo-transparent.png"
-            alt="Whirl logo"
+            src="/logo.png"
+            alt="Whirl Logo"
             width={40}
             height={40}
             className="rounded-xl"
             priority
           />
-          <span className="text-lg font-semibold tracking-wide">Whirl</span>
-        </div>
+        </Link>
 
         {/* Nav Buttons */}
         <nav className="flex items-center gap-3 text-sm">
           <Link href="/download">
-            <button className="px-4 py-2 rounded-full bg-white text-[#461D7C] font-semibold shadow-md hover:bg-purple-100 transition">
+            <button className="cursor-pointer px-4 py-2 rounded-full bg-white text-[#461D7C] font-semibold shadow-md hover:bg-purple-100 transition">
               Download
             </button>
           </Link>
@@ -34,13 +33,13 @@ export default function HomePage() {
             href="https://github.com/ghebert3/4330-Group-Project"
             target="_blank"
           >
-            <button className="px-4 py-2 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
+            <button className="cursor-pointer px-4 py-2 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
               GitHub
             </button>
           </Link>
 
           <Link href="/contact">
-            <button className="px-4 py-2 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
+            <button className="cursor-pointer px-4 py-2 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
               Contact / FAQ
             </button>
           </Link>
@@ -49,20 +48,27 @@ export default function HomePage() {
 
       {/* HERO SECTION */}
       <section className="flex-1 flex items-center">
-        <div className="w-full max-w-5xl mx-auto px-6 py-10 flex flex-col items-center text-center gap-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            LSU’s campus social app.
-          </h1>
+        <div className="w-full max-w-4xl mx-auto px-6 py-10 flex flex-col items-center text-center gap-6">
+          {/* Centered Whirl Logo (big) */}
+          <Image
+            src="/tornado-whirl-logo-transparent.png"
+            alt="Whirl Full Logo"
+            width={300}
+            height={300}
+            className="mb-4"
+            priority
+          />
 
+          {/* Small tagline */}
           <p className="text-sm md:text-base text-white/80 max-w-xl">
-            Meet new Tigers for study sessions, workouts, gaming, and hangouts —
-            all verified with your <span className="font-semibold">@lsu.edu</span> email.
+            LSU Social App that allows students to meet new people,
+            join student activities, and stay connected with campus life.
           </p>
 
-          {/* Primary CTAs */}
+          {/* Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mt-2">
             <Link href="/download">
-              <button className="px-6 py-3 rounded-full bg-white text-[#461D7C] font-semibold shadow-lg hover:bg-purple-100 transition">
+              <button className="cursor-pointer px-6 py-3 rounded-full bg-white text-[#461D7C] font-semibold shadow-lg hover:bg-purple-100 transition">
                 Get Whirl
               </button>
             </Link>
@@ -71,19 +77,19 @@ export default function HomePage() {
               href="https://github.com/ghebert3/4330-Group-Project"
               target="_blank"
             >
-              <button className="px-6 py-3 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
-                View the code on GitHub
+              <button className="cursor-pointer px-6 py-3 rounded-full border border-white/40 text-white/90 hover:bg-white/10 transition">
+                View GitHub
               </button>
             </Link>
           </div>
 
           <p className="text-xs text-white/60 mt-4">
-            Built by LSU students. Beta access for <span className="font-semibold text-white">@lsu.edu</span> emails.
+            Beta access for <span className="font-semibold text-white">@lsu.edu</span> emails.
           </p>
         </div>
       </section>
 
-      {/* FOOTER (tiny + subtle) */}
+      {/* FOOTER */}
       <footer className="w-full py-4 text-center text-[11px] text-white/50">
         © {new Date().getFullYear()} Whirl · Not affiliated with LSU.
       </footer>
