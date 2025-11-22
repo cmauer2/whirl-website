@@ -23,12 +23,14 @@ export default function HomePage() {
 
         {/* Right: Links */}
         <nav className="flex items-center gap-6 text-sm">
-          <Link href="#download">
+          {/* Goes to https://joinwhirl.fun/download */}
+          <Link href="/download">
             <button className="px-4 py-2 bg-yellow-300 text-black font-semibold rounded-full shadow-md hover:opacity-90 transition">
               Download
             </button>
           </Link>
 
+          {/* External GitHub repo */}
           <Link
             href="https://github.com/ghebert3/4330-Group-Project"
             target="_blank"
@@ -37,7 +39,8 @@ export default function HomePage() {
             GitHub
           </Link>
 
-          <Link href="#faq" className="hover:opacity-80 transition">
+          {/* Contact / FAQ page (you can create app/contact/page.tsx later) */}
+          <Link href="/contact" className="hover:opacity-80 transition">
             Contact / FAQ
           </Link>
         </nav>
@@ -52,13 +55,18 @@ export default function HomePage() {
             LSU-only campus social app
           </div>
 
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+            Meet new Tigers —{" "}
+            <span className="text-yellow-300">instantly.</span>
+          </h1>
+
           <p className="text-white/70 text-sm md:text-base max-w-md leading-6 mb-6">
             Whirl helps LSU students find study partners, gym buddies, gamers,
             and friends based on interests, classes, and campus life.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-4" id="download">
-            <Link href="#download">
+          <div className="flex flex-wrap gap-4 mb-4">
+            <Link href="/download">
               <button className="px-6 py-3 bg-purple-700 hover:bg-purple-800 rounded-full shadow-lg text-white font-semibold transition">
                 Get the App (Soon)
               </button>
@@ -74,7 +82,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-white/60">
-            <strong className="text-white"></strong> LSU students only with
+            <strong className="text-white">Beta:</strong> LSU students only with
             <strong className="text-white"> @lsu.edu</strong> emails.
           </p>
         </div>
@@ -89,7 +97,9 @@ export default function HomePage() {
           </div>
 
           <div className="bg-black/40 border border-white/20 p-4 rounded-xl mb-4">
-            <div className="font-semibold mb-1">Tonight · Middleton Library</div>
+            <div className="font-semibold mb-1">
+              Tonight · Middleton Library
+            </div>
             <div className="text-xs text-white/60 mb-4">
               “Study group for CSC 4330 exam · need 2 more people 👀”
             </div>
@@ -149,7 +159,7 @@ export default function HomePage() {
             {
               icon: "🚀",
               title: "Constantly updating",
-              desc: "New features roll out weekly. Your feedback shapes Whirl.",
+              desc: "New features roll out often. Your feedback shapes Whirl.",
             },
           ].map((f, i) => (
             <div
@@ -164,7 +174,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ / CONTACT */}
+      {/* FAQ / CONTACT (still on home page for quick info) */}
       <section
         id="faq"
         className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 border-t border-white/20"
@@ -173,18 +183,20 @@ export default function HomePage() {
           <h3 className="text-lg font-semibold mb-3">FAQ</h3>
 
           <p className="text-white/70 mb-4">
-            <strong className="text-white">Who can use Whirl? </strong>  
+            <strong className="text-white">Who can use Whirl? </strong>
             LSU students only.
           </p>
 
           <p className="text-white/70 mb-4">
-            <strong className="text-white">Is this official LSU software? </strong>  
+            <strong className="text-white">
+              Is this official LSU software?
+            </strong>{" "}
             No — Whirl is student-made and not affiliated with LSU.
           </p>
 
           <p className="text-white/70 mb-4">
-            <strong className="text-white">Is there an app? </strong>  
-            Yes, Android/iOS beta builds coming soon.
+            <strong className="text-white">Is there an app?</strong> Yes,
+            Android/iOS beta builds are coming soon.
           </p>
         </div>
 
