@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Whirl Website
 
-## Getting Started
+This is the official web home for **Whirl**, an LSU-only campus social app built by LSU students.  
+This website originally existed as a **simple gateway for Supabase password resets, password creation, and authentication flows**, but has since evolved into the **full public-facing website** for the Whirl mobile app.
 
-First, run the development server:
+The website includes a modern landing page, a secure password-reset screen, and the foundation for future pages such as updates, features, and documentation.
+
+---
+
+## 🚀 Features
+
+### ✔️ Modern Landing Page
+A clean, mobile-friendly homepage introducing the app, showing features, and providing basic navigation.
+
+### ✔️ Password Reset Handler (Supabase Auth)
+Handles secure password reset sessions triggered from the mobile app.
+
+### ✔️ Global Layout & Styling
+Shared layout, fonts, and TailwindCSS configuration.
+
+### ✔️ Deployed on Vercel
+The entire site is hosted and auto-deployed via **Vercel**, providing instant updates on every push to the repository.
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js 14**
+- **React**
+- **TailwindCSS**
+- **Supabase (Auth + API)**
+- **Vercel Hosting**
+
+---
+
+## 📦 Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site will run at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔑 Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file and include:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+These are used by the password reset page to communicate with Supabase.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Deployment (Vercel)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is deployed using **Vercel**, with automatic CI/CD:
+
+1. Push changes to GitHub  
+2. Vercel auto-builds  
+3. New version goes live in seconds
+
+---
+
+## 📬 Contact
+
+Have ideas, feedback, or issues?
+
+📧 **contact@joinwhirl.fun**
+
+---
+
+## © License
+
+© 2025 Whirl  
+Built by LSU students — not affiliated with LSU.
