@@ -18,7 +18,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Brand */}
-          <Link href="/" className="flex items-center gap-3 cursor-pointer">
+          <Link href="/" className="flex flex-col items-start gap-1 cursor-pointer">
             <Image
               src="/tornado-whirl-logo-transparent.png"
               alt="Whirl tornado logo"
