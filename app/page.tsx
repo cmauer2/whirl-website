@@ -18,19 +18,16 @@ export default function HomePage() {
       <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Brand */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 cursor-pointer">
             <Image
-              src="/logo.png"
-              alt="Whirl logo"
-              width={40}
-              height={40}
-              className="h-9 w-9 rounded-xl border border-white/10 shadow-md shadow-violet-500/40 object-cover bg-slate-900"
+              src="/tornado-whirl-logo-transparent.png"
+              alt="Whirl tornado logo"
+              width={150}
+              height={150}
+              className="h-10 w-auto object-contain transition-transform duration-150 hover:scale-[1.03]"
               priority
             />
             <div className="flex flex-col leading-tight">
-              <span className="font-semibold tracking-[0.18em] text-[11px] uppercase text-slate-100">
-                Whirl
-              </span>
               <span className="text-[11px] text-slate-400">
                 LSU campus social app
               </span>
@@ -42,25 +39,34 @@ export default function HomePage() {
             className="hidden md:flex items-center gap-6 text-sm"
             aria-label="Main navigation"
           >
-            <Link href="/download" className="text-slate-300 hover:text-white transition">
+            <Link
+              href="/download"
+              className="text-slate-300 hover:text-white transition cursor-pointer"
+            >
               Download
             </Link>
-            <Link href="/faq" className="text-slate-300 hover:text-white transition">
+            <Link
+              href="/faq"
+              className="text-slate-300 hover:text-white transition cursor-pointer"
+            >
               FAQ
             </Link>
-            <Link href="/contact" className="text-slate-300 hover:text-white transition">
+            <Link
+              href="/contact"
+              className="text-slate-300 hover:text-white transition cursor-pointer"
+            >
               Contact
             </Link>
             <Link
               href="https://github.com/ghebert3/4330-Group-Project"
               target="_blank"
-              className="text-slate-300 hover:text-white transition"
+              className="text-slate-300 hover:text-white transition cursor-pointer"
             >
               GitHub
             </Link>
 
-            <Link href="/download">
-              <button className="ml-2 inline-flex items-center gap-2 rounded-full bg-slate-50 text-slate-900 text-sm font-semibold px-4 py-2 shadow-md shadow-slate-900/50 hover:bg-slate-200 transition">
+            <Link href="/download" className="cursor-pointer">
+              <button className="ml-2 inline-flex items-center gap-2 rounded-full bg-slate-50 text-slate-900 text-sm font-semibold px-4 py-2 shadow-md shadow-slate-900/50 hover:bg-slate-200 transition cursor-pointer">
                 Get the app
                 <span className="text-xs text-slate-600">beta</span>
               </button>
@@ -69,8 +75,8 @@ export default function HomePage() {
 
           {/* Mobile CTA */}
           <div className="flex items-center gap-2 md:hidden">
-            <Link href="/download">
-              <button className="rounded-full bg-slate-50 text-slate-900 text-xs font-semibold px-3 py-2 shadow-md shadow-slate-900/50 hover:bg-slate-200 transition">
+            <Link href="/download" className="cursor-pointer">
+              <button className="rounded-full bg-slate-50 text-slate-900 text-xs font-semibold px-3 py-2 shadow-md shadow-slate-900/50 hover:bg-slate-200 transition cursor-pointer">
                 Get Whirl
               </button>
             </Link>
@@ -98,13 +104,14 @@ export default function HomePage() {
               </h1>
               <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl">
                 Whirl connects LSU students with study partners, gym buddies,
-                current campus events, and new friends. You choose who you want to match with based on your classes, interests, and campus life.
+                current campus events, and new friends. You choose who you want
+                to match with based on your classes, interests, and campus life.
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <Link href="/download">
-                <button className="inline-flex items-center gap-2 rounded-full bg-violet-500 px-6 py-3 text-sm font-semibold text-slate-50 shadow-lg shadow-violet-500/40 hover:bg-violet-400 transition">
+              <Link href="/download" className="cursor-pointer">
+                <button className="inline-flex items-center gap-2 rounded-full bg-violet-500 px-6 py-3 text-sm font-semibold text-slate-50 shadow-lg shadow-violet-500/40 hover:bg-violet-400 transition cursor-pointer">
                   Download Whirl
                   <span className="text-[11px] rounded-full bg-violet-300/20 px-2 py-0.5 border border-violet-200/40 text-violet-50">
                     iOS / Android beta
@@ -112,8 +119,8 @@ export default function HomePage() {
                 </button>
               </Link>
 
-              <Link href="/faq">
-                <button className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-5 py-3 text-sm font-medium text-slate-100 hover:border-slate-400 hover:bg-slate-900/60 transition">
+              <Link href="/faq" className="cursor-pointer">
+                <button className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-5 py-3 text-sm font-medium text-slate-100 hover:border-slate-400 hover:bg-slate-900/60 transition cursor-pointer">
                   How it works
                   <span className="text-xs text-slate-400">FAQ</span>
                 </button>
@@ -215,12 +222,12 @@ export default function HomePage() {
                 Made by LSU CS students
               </h2>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Whirl started in our Software Systems (CSC 4330) class as a group project.
-                Any sort of feedback would be greatly appreciated 
+                Whirl started in our Software Systems (CSC 4330) class as a group
+                project. Any sort of feedback would be greatly appreciated.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1 text-[11px] text-violet-300 hover:text-violet-200"
+                className="inline-flex items-center gap-1 text-[11px] text-violet-300 hover:text-violet-200 cursor-pointer"
               >
                 Share feedback with the team →
               </Link>
@@ -236,10 +243,10 @@ export default function HomePage() {
             © {new Date().getFullYear()} Whirl. Built by LSU students. Not affiliated with LSU.
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className="hover:text-slate-200">
+            <Link href="/privacy" className="hover:text-slate-200 cursor-pointer">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-slate-200">
+            <Link href="/terms" className="hover:text-slate-200 cursor-pointer">
               Terms
             </Link>
           </div>
