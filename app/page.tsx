@@ -94,8 +94,9 @@ export default function HomePage() {
               </h1>
               <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl">
                 Whirl connects LSU students with study partners, gym buddies,
-                gamers, and new friends. No massive group chats, no random DMs – just
-                focused matches based on your classes, interests, and campus life.
+                gamers, and new friends. No massive group chats, no random DMs –
+                just focused matches based on your classes, interests, and
+                campus life.
               </p>
             </div>
 
@@ -137,93 +138,49 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* RIGHT – APP PREVIEW PANEL */}
+          {/* RIGHT – REAL APP SCREENSHOTS */}
           <section className="w-full">
             <div className="relative mx-auto max-w-sm">
-              {/* Glow behind "phone" */}
-              <div className="absolute -inset-x-4 -top-6 h-40 bg-gradient-to-b from-violet-400/30 via-fuchsia-400/20 to-transparent blur-3xl" />
+              {/* Glow behind phones */}
+              <div className="absolute -inset-x-10 -top-8 h-40 bg-gradient-to-b from-violet-400/30 via-fuchsia-400/20 to-transparent blur-3xl" />
 
-              {/* Card */}
-              <div className="relative rounded-[2rem] border border-slate-700 bg-slate-900/90 shadow-2xl shadow-black/70 p-4">
-                {/* "Status bar" */}
-                <div className="flex items-center justify-between text-[10px] text-slate-400 mb-3 px-1">
-                  <span>Whirl preview</span>
-                  <span>LSU · Now</span>
+              {/* Stacked screenshots */}
+              <div className="relative">
+                {/* Back screenshot */}
+                <div className="absolute -top-6 -left-4 w-[72%] rotate-[-10deg] rounded-[2rem] border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/70 overflow-hidden">
+                  <div className="bg-slate-900/80 h-4 w-full" />
+                  <div className="relative w-full">
+                    <Image
+                      src="/meetpage-UI.png"
+                      alt="Whirl profile / meet page screen"
+                      width={700}
+                      height={1600}
+                      className="w-full h-auto object-cover"
+                      priority
+                    />
+                  </div>
                 </div>
 
-                {/* Phone mock */}
-                <div className="rounded-[1.5rem] border border-slate-700 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 overflow-hidden p-3 space-y-3">
-                  {/* Top filter row */}
-                  <div className="flex items-center justify-between text-[11px] text-slate-300">
-                    <div className="inline-flex items-center gap-2">
-                      <span className="rounded-full bg-slate-800 px-3 py-1">
-                        Campus feed
-                      </span>
-                      <span className="rounded-full border border-slate-700 px-2 py-1 text-slate-400">
-                        For you
-                      </span>
-                    </div>
-                    <span className="text-[10px] text-emerald-300 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      Online
-                    </span>
-                  </div>
-
-                  {/* Feed card 1 */}
-                  <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 p-3 space-y-2">
-                    <div className="flex items-center justify-between text-[11px] text-slate-400">
-                      <span>Tonight · Middleton Library</span>
-                      <span className="rounded-full bg-emerald-500/10 text-emerald-300 px-2 py-0.5">
-                        Study
-                      </span>
-                    </div>
-                    <div className="text-sm font-medium text-slate-100">
-                      CSC 4330 exam review group
-                    </div>
-                    <p className="text-[11px] text-slate-300">
-                      “We’re walking through past tests and tricky problems – need 2 more.”
-                    </p>
-                    <div className="flex items-center justify-between pt-1 text-[10px] text-slate-400">
-                      <span>Matched via Classes + Interests</span>
-                      <span>3 joined · 1 spot left</span>
-                    </div>
-                  </div>
-
-                  {/* Feed card 2 */}
-                  <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 p-3 space-y-2">
-                    <div className="flex items-center justify-between text-[11px] text-slate-400">
-                      <span>Tomorrow · UREC</span>
-                      <span className="rounded-full bg-amber-400/10 text-amber-200 px-2 py-0.5">
-                        Fitness
-                      </span>
-                    </div>
-                    <div className="text-sm font-medium text-slate-100">
-                      Looking for a gym buddy
-                    </div>
-                    <p className="text-[11px] text-slate-300">
-                      “Leg day around 6 pm – intermediate, just want someone consistent.”
-                    </p>
-                    <div className="flex items-center gap-2 text-[10px] text-slate-400">
-                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400" />
-                      <span>Suggested based on your interests</span>
-                    </div>
-                  </div>
-
-                  {/* Quote */}
-                  <div className="mt-1 rounded-2xl border border-slate-700 bg-slate-900/80 p-3 text-[11px] text-slate-300 flex items-start gap-2">
-                    <span className="text-xl leading-none text-emerald-300">“</span>
-                    <p>
-                      I met more people in my major with Whirl in a week than I did all
-                      last semester.
-                    </p>
-                  </div>
+                {/* Front screenshot */}
+                <div className="relative w-full rounded-[2rem] border border-slate-600 bg-slate-900/95 shadow-2xl shadow-black/80 overflow-hidden">
+                  {/* subtle fake status bar */}
+                  <div className="bg-slate-900/90 h-4 w-full" />
+                  <Image
+                    src="/meetup-UI.png"
+                    alt="Whirl home / search screen"
+                    width={700}
+                    height={1600}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
                 </div>
               </div>
 
-              {/* Small floating badge */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-slate-700 bg-slate-950/90 px-4 py-2 text-[11px] text-slate-300 shadow-lg shadow-black/70 flex items-center gap-2">
+              {/* Badge */}
+              <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 rounded-full border border-slate-700 bg-slate-950/90 px-4 py-2 text-[11px] text-slate-300 shadow-lg shadow-black/70 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                LSU students only with <span className="font-semibold text-slate-100">@lsu.edu</span>
+                Actual in-app screenshots · LSU students only with{" "}
+                <span className="font-semibold text-slate-100">@lsu.edu</span>
               </div>
             </div>
           </section>
@@ -238,8 +195,9 @@ export default function HomePage() {
                 Built for LSU, not the whole world
               </h2>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Whirl is intentionally small, focused, and local. Every account is tied to
-                an @lsu.edu email so you know you are connecting with real LSU students.
+                Whirl is intentionally small, focused, and local. Every account is
+                tied to an @lsu.edu email so you know you are connecting with real
+                LSU students.
               </p>
             </div>
 
@@ -249,9 +207,9 @@ export default function HomePage() {
                 Simple, safe, and respectful
               </h2>
               <p className="text-xs text-slate-300 leading-relaxed">
-                You choose what to share. We rely on Supabase authentication and modern
-                security practices so you can focus on meeting people, not managing privacy
-                settings.
+                You choose what to share. We rely on Supabase authentication and
+                modern security practices so you can focus on meeting people, not
+                managing privacy settings.
               </p>
             </div>
 
@@ -261,9 +219,9 @@ export default function HomePage() {
                 Made by students like you
               </h2>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Whirl started as a class project and grew into something bigger. Your
-                feedback shapes what we build next – from new matching options to better
-                event discovery.
+                Whirl started as a class project and grew into something bigger.
+                Your feedback shapes what we build next – from new matching options
+                to better event discovery.
               </p>
               <Link
                 href="/contact"
