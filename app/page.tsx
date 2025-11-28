@@ -15,17 +15,20 @@ export default function HomePage() {
       </div>
 
       {/* NAVBAR */}
-      <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative">
-              <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-violet-400 via-fuchsia-400 to-amber-300 shadow-lg shadow-violet-500/40 flex items-center justify-center text-slate-950 font-extrabold text-lg">
-                W
-              </div>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Whirl logo"
+              width={40}
+              height={40}
+              className="h-9 w-9 rounded-xl border border-white/10 shadow-md shadow-violet-500/40 object-cover bg-slate-900"
+              priority
+            />
             <div className="flex flex-col leading-tight">
-              <span className="font-semibold tracking-[0.18em] text-[11px] uppercase text-slate-200">
+              <span className="font-semibold tracking-[0.18em] text-[11px] uppercase text-slate-100">
                 Whirl
               </span>
               <span className="text-[11px] text-slate-400">
@@ -34,8 +37,11 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Nav links */}
-          <nav className="hidden md:flex items-center gap-6 text-sm">
+          {/* Desktop nav */}
+          <nav
+            className="hidden md:flex items-center gap-6 text-sm"
+            aria-label="Main navigation"
+          >
             <Link href="/download" className="text-slate-300 hover:text-white transition">
               Download
             </Link>
@@ -61,7 +67,7 @@ export default function HomePage() {
             </Link>
           </nav>
 
-          {/* Mobile CTAs */}
+          {/* Mobile CTA */}
           <div className="flex items-center gap-2 md:hidden">
             <Link href="/download">
               <button className="rounded-full bg-slate-50 text-slate-900 text-xs font-semibold px-3 py-2 shadow-md shadow-slate-900/50 hover:bg-slate-200 transition">
@@ -74,16 +80,14 @@ export default function HomePage() {
 
       {/* MAIN CONTENT */}
       <div className="flex-1">
-        <div className="max-w-6xl mx-auto px-6 py-10 md:py-14 grid lg:grid-cols-[1.15fr,0.95fr] gap-10 lg:gap-14 items-start">
+        <section className="max-w-6xl mx-auto px-6 py-10 md:py-14 grid lg:grid-cols-[1.15fr,0.95fr] gap-10 lg:gap-14 items-start">
           {/* LEFT – HERO + COPY */}
-          <section className="space-y-8">
-            {/* Tag */}
+          <div className="space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/5 px-3 py-1 text-[11px] text-emerald-200">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               Live in beta for LSU students
             </div>
 
-            {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
                 One place to{" "}
@@ -94,13 +98,10 @@ export default function HomePage() {
               </h1>
               <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-xl">
                 Whirl connects LSU students with study partners, gym buddies,
-                gamers, and new friends. No massive group chats, no random DMs –
-                just focused matches based on your classes, interests, and
-                campus life.
+                current campus events, and new friends. You choose who you want to match with based on your classes, interests, and campus life.
               </p>
             </div>
 
-            {/* Primary actions */}
             <div className="flex flex-wrap items-center gap-3">
               <Link href="/download">
                 <button className="inline-flex items-center gap-2 rounded-full bg-violet-500 px-6 py-3 text-sm font-semibold text-slate-50 shadow-lg shadow-violet-500/40 hover:bg-violet-400 transition">
@@ -119,7 +120,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Social proof / stats */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 text-xs text-slate-300">
               <div className="rounded-2xl border border-slate-800 bg-slate-900/60 px-4 py-3">
                 <div className="text-[11px] text-slate-400">Connections this week</div>
@@ -136,10 +136,10 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
 
           {/* RIGHT – REAL APP SCREENSHOTS */}
-          <section className="w-full">
+          <div className="w-full">
             <div className="relative mx-auto max-w-sm">
               {/* Glow behind phones */}
               <div className="absolute -inset-x-10 -top-8 h-40 bg-gradient-to-b from-violet-400/30 via-fuchsia-400/20 to-transparent blur-3xl" />
@@ -163,7 +163,6 @@ export default function HomePage() {
 
                 {/* Front screenshot */}
                 <div className="relative w-full rounded-[2rem] border border-slate-600 bg-slate-900/95 shadow-2xl shadow-black/80 overflow-hidden">
-                  {/* subtle fake status bar */}
                   <div className="bg-slate-900/90 h-4 w-full" />
                   <Image
                     src="/meetup-UI.png"
@@ -183,25 +182,23 @@ export default function HomePage() {
                 <span className="font-semibold text-slate-100">@lsu.edu</span>
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
-        {/* SECONDARY SECTIONS */}
+        {/* SECONDARY SECTION */}
         <section className="border-t border-slate-800 bg-slate-950/90">
           <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
-            {/* Column 1 */}
             <div className="space-y-3">
               <h2 className="text-sm font-semibold text-slate-100">
                 Built for LSU, not the whole world
               </h2>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Whirl is intentionally small, focused, and local. Every account is
+                Whirl is a small, focused, and local mobile application. Every account is
                 tied to an @lsu.edu email so you know you are connecting with real
                 LSU students.
               </p>
             </div>
 
-            {/* Column 2 */}
             <div className="space-y-3">
               <h2 className="text-sm font-semibold text-slate-100">
                 Simple, safe, and respectful
@@ -213,15 +210,13 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Column 3 */}
             <div className="space-y-3">
               <h2 className="text-sm font-semibold text-slate-100">
-                Made by students like you
+                Made by LSU CS students
               </h2>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Whirl started as a class project and grew into something bigger.
-                Your feedback shapes what we build next – from new matching options
-                to better event discovery.
+                Whirl started in our Software Systems (CSC 4330) class as a group project.
+                Any sort of feedback would be greatly appreciated 
               </p>
               <Link
                 href="/contact"
