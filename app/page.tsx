@@ -27,11 +27,9 @@ export default function HomePage() {
               className="h-10 w-auto object-contain transition-transform duration-150 hover:scale-[1.03]"
               priority
             />
-            <div className="flex flex-col leading-tight">
-              <span className="text-[11px] text-slate-400">
+              <span className="text-[11px] text-slate-400 ml-1">
                 LSU campus social app
               </span>
-            </div>
           </Link>
 
           {/* Desktop nav */}
